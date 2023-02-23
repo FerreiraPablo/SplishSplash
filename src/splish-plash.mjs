@@ -1,4 +1,7 @@
 export class SplishPlash extends HTMLElement {
+
+    #eventHandlers = [];
+
     get background() {
         return (this.getAttribute("background") || "#000");
     }
@@ -66,17 +69,10 @@ export class SplishPlash extends HTMLElement {
         return this.autostart;
     }
 
-
     set logoHeight(height) {
         this.setAttribute("logo-height", height);
         this.#render();
         return this.logoHeight;
-    }
-
-    constructor() {
-        super();
-        this.style.background = this.background;
-        this.eventHandlers = [];
     }
 
     #applyStyles() {
@@ -144,18 +140,18 @@ export class SplishPlash extends HTMLElement {
 
     trigger(eventName, eventData) {
         var reference = this;
-        this.eventHandlers.filter(x => x.eventName == eventName).forEach(x => {
+        this.#eventHandlers.filter(x => x.eventName == eventName).forEach(x => {
             x.handler.apply(reference, [eventData]);
         })
     }
 
     hasEventListener(eventName, handler) {
-        return this.eventHandlers.filter(x => x.eventName == eventName && x.handler == handler) > 0;
+        return this.#eventHandlers.filter(x => x.eventName == eventName && x.handler == handler) > 0;
     }
 
     addEventListener(eventName, handler) {
         if (!this.hasEventListener(eventName, handler)) {
-            this.eventHandlers.push({
+            this.#eventHandlers.push({
                 "eventName": eventName,
                 "handler": handler
             })
@@ -164,8 +160,8 @@ export class SplishPlash extends HTMLElement {
 
     removeEventListener(eventName, handler) {
         if (this.hasEventListener(eventName, handler)) {
-            var eventHandler = this.eventHandlers.filter(x => x.eventName == eventName && x.handler == handler)[0];
-            this.eventHandlers.splice(this.eventHandlers.indexOf(eventHandler), 1);
+            var eventHandler = this.#eventHandlers.filter(x => x.eventName == eventName && x.handler == handler)[0];
+            this.#eventHandlers.splice(this.#eventHandlers.indexOf(eventHandler), 1);
         }
     }
 }
