@@ -1,0 +1,14 @@
+{
+  "name": "splish-plash",
+  "version": "1.0.0",
+  "description": "A simple animated splash screen web component.",
+  "keywords": [
+    "web-components"
+  ],
+  "main": "src/splash-screen.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pablo Ferreira",
+  "license": "ISC"
+}
