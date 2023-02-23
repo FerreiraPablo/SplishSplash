@@ -1,4 +1,4 @@
-export default class SplishPlash extends HTMLElement {
+export class SplishPlash extends HTMLElement {
     get background() {
         return (this.getAttribute("background") || "#000");
     }
