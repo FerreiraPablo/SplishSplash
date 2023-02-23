@@ -5,10 +5,21 @@
   "keywords": [
     "web-components"
   ],
-  "main": "src/splash-screen.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "src/splish-plash.mjs",
+  "module": "src/splish-plash.mjs",
+  "type": "module",
+  "scripts": {},
   "author": "Pablo Ferreira",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FerreiraPablo/SplishSplash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FerreiraPablo/SplishSplash/issues"
+  },
+  "homepage": "https://github.com/FerreiraPablo/SplishSplash#readme",
+  "files": [
+    "src/splish-plash.mjs"
+  ]
 }
